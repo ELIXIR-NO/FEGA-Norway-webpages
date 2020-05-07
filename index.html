@@ -1,25 +1,183 @@
-<!DOCTYPE html>
+<!doctype html>
+<html lang="en-us">
 
-<html>
+    <head>
 
-<script type="text/javascript">
+        <!-- Meta -->
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
 
-function detectBrowser()
-{
-    var slashIndex = window.location.href.lastIndexOf("/");
-    var cropped = window.location.href.slice(0,slashIndex+1);
+        <title>Norwegian Federated EGA node</title>
+        <meta name="description" content="Local EGA in Norway">
 
-    window.location.replace(cropped + "assets/player/KeynoteDHTMLPlayer.html");
-}
+        <!-- The compiled CSS file -->
+        <link rel="stylesheet" href="css/production.css">
 
-</script>
+        <!-- Web fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700|Source+Serif+Pro:700" rel="stylesheet"> 
 
-<head>
-  <meta charset="UTF-8">
-  <title>LocalEGA</title>
-</head>
+        <!-- favicon.ico. Place these in the root directory. -->
+        <link rel="shortcut icon" href="https://ega-archive.org/favicon.ico">
 
-<body bgcolor="black" onload="detectBrowser()">
-</body>
+    </head>
 
+    <body class="has-animations">
+
+
+    <!-- Header -->
+    <header class="align--center pt3">
+        <div class="container--lg border--bottom pb3">
+            <img class="logo mb3 reveal-on-scroll is-revealing" src="https://ega-archive.org/images/logo.png" alt="Norwegian Federated EGA node">
+            <h1 class="mb2">Norwegian Federated EGA node</h1>
+            <span>
+                <a href="/token" class="link"><img class="login" src="/img/login-button-orange-small.png" alt="Login with Elixir AAI"></a>
+            </span>
+<!--            <span>-->
+<!--                <a href="https://play.google.com/store" class="link"><img class="download" src="/img/googleplay.png" alt="Download on Google Play"></a>-->
+<!--            </span>-->
+        </div>
+    </header>
+
+    <main>
+
+        <!-- Feature list -->
+        <div class="container pt3 mt2 text--gray align--center">
+            <p class="mb3">
+                The Federated EGA (European Genome-phenome Archive) is a distributed solution for sharing and exchange of human -omics data across national borders. Federated instance collects metadata of -omics data collections stored in national or regional archives and make them available for search through the main EGA portal.
+            </p>
+            <div class="grid-row">
+                <div class="grid-column span-one-third mb3 reveal-on-scroll is-revealing">
+                    <img class="illustration--small mb1" src="/img/search.svg" alt="Powerful search">
+                    <p>Searchable</p>
+                </div>
+                <div class="grid-column span-one-third mb3 reveal-on-scroll is-revealing">
+                    <img class="illustration--small mb1" src="/img/vault.svg" alt="Put in a vault">
+                    <p>Secure</p>
+                </div>
+                <div class="grid-column span-one-third mb3 reveal-on-scroll is-revealing">
+                    <img class="illustration--small mb1" src="/img/connected.svg" alt="Stay connected">
+                    <p>Shareable</p>
+                </div>
+<!--                <div class="grid-column span-one-third mb3 reveal-on-scroll is-revealing">-->
+<!--                    <img class="illustration&#45;&#45;small mb1" src="/img/assign.svg" alt="Assign to others">-->
+<!--                    <p>Assign to others</p>-->
+<!--                </div>-->
+<!--                <div class="grid-column span-one-third mb3 reveal-on-scroll is-revealing">-->
+<!--                    <img class="illustration&#45;&#45;small mb1" src="/img/messaging.svg" alt="Fast messaging">-->
+<!--                    <p>Fast messaging</p>-->
+<!--                </div>-->
+<!--                <div class="grid-column span-one-third mb3 reveal-on-scroll is-revealing">-->
+<!--                    <img class="illustration&#45;&#45;small mb1" src="/img/mail.svg" alt="Share with others">-->
+<!--                    <p>Share with others</p>-->
+<!--                </div>-->
+            </div>
+        </div>
+
+        <!-- Focus -->
+        <div class="container--lg pt1 pb1">
+
+            <div class="grid-row grid-row--center">
+                <div class="grid-column mt3 mb2 order-2">
+                    <div class="border--bottom pb2 mb2">
+                        <h2>Sharing</h2>
+                        <p>
+                            The European Genome-phenome Archive (EGA) is a service for permanent archiving and sharing of all types of personally identifiable genetic and phenotypic data resulting from biomedical research projects. The EGA contains exclusive data collected from individuals whose consent agreements authorise data release only for specific research use or to bona fide researchers.
+                        </p>
+                    </div>
+                    <p class="italic text--gray mb1">
+                        The federated infrastructure for human genomics we are building with GA4GH will enable population-scale genomics data to be accessible across international borders, accelerating research and improving the health of European citizens.
+                    </p>
+                    <p class="bold">Niklas Blomberg, ELIXIR Director</p>
+                </div>
+                <div class="grid-column span-1"></div>
+                <div class="grid-column mt3 mb2 order-1 reveal-on-scroll is-revealing">
+                    <img src="/img/data.svg" alt="Sharing">
+                </div>
+            </div>
+
+            <div class="grid-row grid-row--center">
+                <div class="grid-column mt3 mb2 reveal-on-scroll is-revealing">
+                    <img src="/img/security.svg" alt="Protecting">
+                </div>
+                <div class="grid-column span-1"></div>
+                <div class="grid-column mt3 mb2">
+                    <div class="border--bottom pb2 mb2">
+                        <h2>Protecting</h2>
+                        <p>
+                            The sensitive data stored at Federated EGA instance is encrypted with Crypt4GH - a new standard file container format from the Global Alliance for Genomics and Health (GA4GH), allowing genomic data to remain secure throughout their lifetime, from initial sequencing to sharing with professionals at external organizations.
+                        </p>
+                    </div>
+                    <p class="italic text--gray mb1">
+                        Strong encryption both in transit and at rest are critical requirements for Genomics England and other genomics in healthcare initiatives.
+                    </p>
+                    <p class="bold">Augusto Rendon, Crypt4GH implementation leader at Genomics England</p>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Mentioned -->
+        <div class="container--lg pt3 pb3 mb2 align--center">
+            <p class="mb2">Hosted by</p>
+            <span><img class="mentioned" src="/img/uio_segl_a.png" alt="University of Oslo"></span>
+        </div>
+
+        <!-- CTA -->
+        <div class="bg--dark-gray align--center pt3 pb3">
+            <div class="container pt2 pb2">
+                <img class="cta-image mb2 reveal-on-scroll is-revealing" src="/img/undraw_data_processing_yrrv.svg" alt="Download the client">
+                <p class="h3 text--white mb1 bold">Download software</p>
+                <p class="text--white mb3">
+                    Please, install the <a class="link link--text" target="_blank" href="https://github.com/elixir-oslo/crypt4gh">encryption tool</a> and the <a class="link link--text" target="_blank" href="https://github.com/uio-bmi/lega-uploader">uploading tool</a> in order to proceed with the submission.
+                </p>
+<!--                <div class="inline-block mr1 no-mr-on-mobile" style="width:280px;max-width:100%">-->
+<!--                    <input class="form-control" type="tel" placeholder="Phone number">-->
+<!--                </div>-->
+<!--                <button class="btn btn&#45;&#45;secondary">Send</button>-->
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="pt1 pb3 align--center-on-mobile">
+        <div class="container">
+            <div class="grid-row">
+                <div class="grid-column mt2 span-half">
+                    <div class="mb1">
+<!--                        <span>-->
+<!--                            <a href="https://www.apple.com/ios/app-store/" class="link"><img class="download" src="/img/ios.png" alt="Download on the App Store"></a>-->
+<!--                        </span>-->
+<!--                        <span>-->
+<!--                            <a href="https://play.google.com/store" class="link"><img class="download" src="/img/googleplay.png" alt="Download on Google Play"></a>-->
+<!--                        </span>-->
+                        <p class="small">
+                            <a href="#" class="link link--text">GDPR</a>&nbsp;&nbsp;&nbsp;
+                            <a href="#" class="link link--text">Privacy Policy</a>&nbsp;&nbsp;&nbsp;
+                            <a href="#" class="link link--text">Terms of Use</a>
+                        </p>
+                        <br/>
+                    </div>
+                    <p class="small">Design by <a href="https://www.papayatemplates.com" class="link link--text">Papaya</a>. Illustrations from&nbsp;<a href="https://undraw.co/" class="link link--text">Undraw</a>.</p>
+                </div>
+                <div class="grid-column mt2 span-half align--right align--center-on-mobile">
+                    <ul class="no-bullets list--inline">
+<!--                        <li class="mr1"><a href="" class="link"><img class="icon" src="/img/youtube.svg" alt="YouTube"></a></li>-->
+<!--                        <li><a href="" class="link"><img class="icon" src="/img/facebook.svg" alt="Facebook"></a></li>-->
+                        <li class="mr1"><a href="mailto:nels-developers@googlegroups.com" class="link"><img class="icon" src="/img/undraw_Mail_sent_qwwx.svg" alt="Contact"></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll reveal -->
+    <script src="https://unpkg.com/scrollreveal@4.0.0/dist/scrollreveal.min.js"></script>
+
+    <!-- The compiled JavaScript file -->
+    <script src="js/production.js"></script>
+
+    </body>
 </html>
+
