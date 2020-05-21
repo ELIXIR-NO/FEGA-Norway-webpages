@@ -37,13 +37,8 @@
 
         <!-- Feature list -->
         <div class="container pt3 mt2 text--gray align--justify">
-            <code>
-                <script type="text/javascript">
-                    const http = new XMLHttpRequest()
-                    http.open("GET", "/token")
-                    http.send()
-                    http.onload = () => document.write(http.responseText)
-                </script>
+            <code id="token">
+
             </code>
         </div>
 
@@ -80,6 +75,13 @@
 
     <!-- Cookies popup -->
     <script type="text/javascript" id="cookieinfo" src="js/cookieinfo.min.js" data-moreinfo="/pp.html"></script>
+
+    <script type="text/javascript">
+        const http = new XMLHttpRequest()
+        http.open("GET", "/token")
+        http.send()
+        http.onload = () => document.getElementById("token").innerHTML = http.responseText
+    </script>
 
     </body>
 </html>
