@@ -39,7 +39,9 @@
         <!-- Feature list -->
         <div class="container pt3 mt2 text--gray align--center">
             <p class="mb3">
-                Before the start, please, make sure that you have all the required software installed:
+                Before the start, please, make sure that you have all the required software installed.
+                All the required tools are open-source and developed by Elixir developers.
+                Please, avoid using any third-party tools that are not listed on this page.
             </p>
             <div class="grid-row">
                 <div class="grid-column span-half mb3 reveal-on-scroll is-revealing">
@@ -59,59 +61,100 @@
             <div class="grid-row grid-row--center">
                 <div class="grid-column mt3 mb2 order-2">
                     <div class="border--bottom pb2 mb2">
-                        <h2>Sharing</h2>
-                        <p>
-                            The European Genome-phenome Archive (EGA) is a service for permanent archiving and sharing of all types of personally identifiable genetic and phenotypic data resulting from biomedical research projects. The EGA contains exclusive data collected from individuals whose consent agreements authorise data release only for specific research use or to bona fide researchers.
+                        <a id="encryption"></a><h2><a href="#encryption" class="link link--text">1. Encryption</a></h2>
+                        <p class="mt2">
+                            In order to deposit your data, it must me encrypted first with <code>crypt4gh</code> tool.
+                        </p>
+                        <p class="mt2">
+                            The <a class="link link--text" target="_blank" href="/ega.pub.pem">public key</a> of the instance should be downloaded first. Then your own key-pair should be generated.
+                        </p>
+                        <p class="mt2">
+                            Finally, the encryption can be performed.
                         </p>
                     </div>
                     <p class="italic text--gray mb1">
-                        The federated infrastructure for human genomics we are building with GA4GH will enable population-scale genomics data to be accessible across international borders, accelerating research and improving the health of European citizens.
+                        You can find more details on the tool <a class="link link--text" target="_blank" href="https://github.com/elixir-oslo/crypt4gh">page</a> at the GitHub.
                     </p>
-                    <p class="bold">Niklas Blomberg, ELIXIR Director</p>
                 </div>
                 <div class="grid-column span-1"></div>
                 <div class="grid-column mt3 mb2 order-1 reveal-on-scroll is-revealing">
-                    <img src="/img/data.svg" alt="Sharing">
+                    <script src="https://gist.github.com/dtitov/ee546faa4036477217f7548b46f7e1b7.js"></script>
                 </div>
             </div>
 
             <div class="grid-row grid-row--center">
                 <div class="grid-column mt3 mb2 reveal-on-scroll is-revealing">
-                    <img src="/img/tsd.png" style="max-height: 400px;" alt="Protecting">
+                    <script src="https://gist.github.com/dtitov/d09b5e7be0fd5f3571125500047f631f.js"></script>
                 </div>
                 <div class="grid-column span-1"></div>
                 <div class="grid-column mt3 mb2">
                     <div class="border--bottom pb2 mb2">
-                        <h2>Protecting</h2>
-                        <p>
-                            The sensitive data stored at Federated EGA instance is encrypted with Crypt4GH - a new standard file container format from the Global Alliance for Genomics and Health (GA4GH), allowing genomic data to remain secure throughout their lifetime, from initial sequencing to sharing with professionals at external organizations.
+                        <a id="authentication"></a><h2><a href="#authentication" class="link link--text">2. Authentication</a></h2>
+                        <p class="mt2">
+                            Before uploading the data, you need to set the authentication environment variables.
+                        </p>
+                        <p class="mt2">
+                            First, you must set <code>CENTRAL_EGA_USERNAME</code> and <code>CENTRAL_EGA_PASSWORD</code>. This is your <a class="link link--text" target="_blank" href="https://ega-archive.org/">EGA</a> credentials.
+                        </p>
+                        <p class="mt2">
+                            Second, you have to set <code>ELIXIR_AAI_TOKEN</code>. This is a JWT token that can be generated on this website after successful Elixir AAI authentication: <a class="link link--text" target="_blank" href="https://ega-archive.org/">https://ega.elixir.no/token.html</a>
                         </p>
                     </div>
                     <p class="italic text--gray mb1">
-                        Strong encryption both in transit and at rest are critical requirements for Genomics England and other genomics in healthcare initiatives.
+                        Note that <code>ELIXIR_AAI_TOKEN</code> has an expiration time of nearly two hours, so one would need to re-obtain and re-set it upon expiration.
                     </p>
-                    <p class="bold">Augusto Rendon, Crypt4GH implementation leader at Genomics England</p>
+                </div>
+            </div>
+
+            <div class="grid-row grid-row--center">
+                <div class="grid-column mt3 mb2 order-2">
+                    <div class="border--bottom pb2 mb2">
+                        <a id="uploading"></a><h2><a href="#uploading" class="link link--text">3. Uploading</a></h2>
+                        <p class="mt2">
+                            At last, you can perform the actual upload of the previously encrypted data, using <code>lega-uploader</code> tool.
+                        </p>
+                        <p class="mt2">
+                            Uploads are processed in chunks, so it is possible to resume the upload in case of unexpected interruption.
+                        </p>
+                        <p class="mt2">
+                            It is also possible to upload directories with files. In this case one must specify a folder name instead of the filename.
+                            Please, keep in mind that the hierarchy of the subfolders is not preserved, i.e. if you have files in multiple nested folders, they all will end up in one folder on the server.
+                        </p>
+                    </div>
+                    <p class="italic text--gray mb1">
+                        You can find more details on the tool <a class="link link--text" target="_blank" href="https://github.com/uio-bmi/lega-uploader">page</a> at the GitHub.
+                    </p>
+                </div>
+                <div class="grid-column span-1"></div>
+                <div class="grid-column mt3 mb2 order-1 reveal-on-scroll is-revealing">
+                    <script src="https://gist.github.com/dtitov/dfe73a792685e6b9be81228b234c886c.js"></script>
+                </div>
+            </div>
+
+            <div class="grid-row grid-row--center">
+                <div class="grid-column mt3 mb2 reveal-on-scroll is-revealing">
+                    <img src="/img/assign.svg" alt="Metadata">
+                </div>
+                <div class="grid-column span-1"></div>
+                <div class="grid-column mt3 mb2">
+                    <div class="border--bottom pb2 mb2">
+                        <a id="metadata"></a><h2><a href="#metadata" class="link link--text">4. Submitting metadata</a></h2>
+                        <p class="mt2">
+                            After successful upload, the metadata about the submission must be entered at the <a class="link link--text" target="_blank" href="https://ega-archive.org/submission/tools/submitter-portal">EGA Submitter Portal</a>.
+                        </p>
+                        <p class="mt2">
+                            The detailed <a class="link link--text" target="_blank" href="https://ega-archive.org/submission/FAQ">FAQ</a> about the metadata submission is available at the EGA website.
+                        </p>
+                    </div>
+                    <p class="italic text--gray mb1">
+                        If you have any questions regarding metadata submission to the EGA, please contact the <a href="mailto:helpdesk@ega-archive.org" class="link link--text">EGA-Helpdesk</a>.
+                    </p>
                 </div>
             </div>
 
         </div>
 
-        <!-- Mentioned -->
-        <div class="container--lg pt3 pb3 mb2 align--center">
-            <p class="mb2 text--gray"><b>Hosted by</b></p>
-            <span><img class="mentioned" src="/img/uio_segl_a.png" alt="University of Oslo"></span>
-        </div>
 
-        <!-- CTA -->
-        <div class="bg--dark-gray align--center pt3 pb3">
-            <div class="container pt2 pb2">
-                <img class="cta-image mb2 reveal-on-scroll is-revealing" src="/img/undraw_data_processing_yrrv.svg" alt="Download the client">
-                <p class="h3 text--white mb1 bold">Download software</p>
-                <p class="text--white mb3">
-                    Please, install the <a class="link link--text" target="_blank" href="https://github.com/elixir-oslo/crypt4gh">encryption tool</a> and the <a class="link link--text" target="_blank" href="https://github.com/uio-bmi/lega-uploader">uploading tool</a> in order to proceed with the submission.
-                </p>
-            </div>
-        </div>
 
     </main>
 
