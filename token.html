@@ -48,7 +48,6 @@
         <!-- Feature list -->
         <div class="container mt2">
             <code id="token" class="align--justify align--center-on-mobile text--gray" style="overflow-wrap: break-word; max-width: 100px">
-                eyJraWQiOiJyc2ExIiwiYWxnIjoiUlMyNTYifQ.eyJzdWIiOiJlZDY0YmJlOTdlZjU4OWM0ODBhMjUwNGU0NGVhMTg4ZjQxYjkzMjNlQGVsaXhpci1ldXJvcGUub3JnIiwiYXVkIjoiODgwYTA3MzMtYjg3Mi00YTE3LThmMjgtYTRlMmEwYjFmM2VjIiwiYXpwIjoiODgwYTA3MzMtYjg3Mi00YTE3LThmMjgtYTRlMmEwYjFmM2VjIiwic2NvcGUiOiJnYTRnaF9wYXNzcG9ydF92MSBvcGVuaWQiLCJpc3MiOiJodHRwczpcL1wvbG9naW4uZWxpeGlyLWN6ZWNoLm9yZ1wvb2lkY1wvIiwiZXhwIjoxNTk4ODc2MzgxLCJpYXQiOjE1OTg4NzI3ODEsImp0aSI6IjgxMGVjZTYyLWMyMGYtNDRlMS04ZGI4LTVhZTNhZmFiODc5NSJ9.OhApvNog1U-X0y__URJn3AN0y1ft0jkQIOaSZLJk0jEtBNiiMTBNjMTBftsgsruyJu5lWP_2-RuHfE5D0LhIbGytsCriFZPIiKOlDi2NG3egOXWf8I3dzUW-FqnaCj4X3p_flD2qPA4HAmxZRnsddba2X0NO6VM1XBQ2XJeUHo7KcbEPImVUixahYCf-w9UKd7enJvIJtglPLtxu2xcE611eWxKmX-TanCfZo6fe6Tfm5l8RbfbuTEO0EX3Q9F52Cu3mfWx68_A4XBGko3YMtki_PbILn9Yix3Biny4LcG9OCuJdzkDwOHiS1xh1pwep2f6asi-kJIxQarNI7Hv5cw
             </code>
             <div class="grid-row pt1 mt1">
                 <div class="grid-column align--center align--center-on-mobile">
@@ -90,11 +89,20 @@
     <script src="js/clipboard.min.js"></script>
 
     <script type="text/javascript">
-        const http = new XMLHttpRequest()
-        http.open("GET", "/token")
-        http.send()
-        http.onload = () => document.getElementById("token").innerHTML = http.responseText
-        new ClipboardJS('.btn')
+        const http = new XMLHttpRequest();
+        http.open("GET", "/token");
+        http.send();
+        http.onload = () => {
+            document.getElementById("token").innerHTML = http.responseText;
+            const base64Url = token.split('.')[1];
+            const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+            const jsonPayload = decodeURIComponent(atob(base64).split('').map(function(c) {
+                return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+            }).join(''));
+            document.getElementById("token").innerHTML = http.responseText;
+            document.getElementById("sub").innerHTML = jsonPayload['sub'];
+        }
+        new ClipboardJS('.btn');
     </script>
 
     </body>
