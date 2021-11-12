@@ -8,14 +8,14 @@
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <meta name="viewport" content="width=device-width,initial-scale=1">
 
-        <title>Token</title>
+        <title>Terms of Service</title>
         <meta name="description" content="Local EGA in Norway">
 
         <!-- The compiled CSS file -->
         <link rel="stylesheet" href="css/production.css">
 
         <!-- Web fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700|Source+Serif+Pro:700" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700|Source+Serif+Pro:700" rel="stylesheet"> 
 
         <!-- favicon.ico. Place these in the root directory. -->
         <link rel="shortcut icon" href="/img/favicon.ico">
@@ -40,22 +40,30 @@
         <div class="container--lg border--bottom pb3">
             <a href="/"><img class="logo mb3 reveal-on-scroll is-revealing" style="max-height: 200px;" src="/img/logo.png" alt="Norwegian Federated EGA node"></a>
             <h1 class="mb2">Norwegian Federated EGA node</h1>
-            <h2 class="mt3">Token for: </h2>
-            <p class="text--primary-color bold" id="sub"></p>
+            <h2 class="mt3">Documents and Information</h2>
         </div>
     </header>
 
     <main>
 
         <!-- Feature list -->
-        <div class="container mt2">
-            <code id="token" class="align--justify align--center-on-mobile text--gray" style="overflow-wrap: break-word; max-width: 100px">
-            </code>
-            <div class="grid-row pt1 mt1">
-                <div class="grid-column align--center align--center-on-mobile">
-                    <button class="btn" data-clipboard-target="#token">
-                        Copy to clipboard
-                    </button>
+        <div class="container--lg pt1 pb1">
+            <div class="grid-row grid-row--center">
+                <div class="grid-column mt3 mb2 order-2">
+                    <h3>General</h3>
+                    <p style="padding-top:10px">You can find some important documents here.</p>
+                    <bl style="padding-top:10px">
+                        <li style="margin-left:30px"><a href="/docs/NFEGA fact sheet.pdf" download target="_blank">NFEGA Fact Sheet</a></li>
+                        <li style="margin-left:30px"><a href="/docs/Expanded NFEGA service description.pdf" download target="_blank">Expanded NFEGA Servie Description</a></li>
+                    </bl>
+                    <h3 style="padding-top:30px">Submitter</h3>
+                    <p style="padding-top:10px">Submitter can find a Data Processor Agreement template <a href="/docs/DPA-between-NFEGA-and-Submitter-template_april21.pdf" download target="_blank">here</a></p>
+                    <h3 style="padding-top:30px">Data Requester</h3>
+                    <p style="padding-top:10px">Data Requester can find a Data Processor Agreement template <a href="/docs/DPA-between-DAC-and-DataRequestor-template.pdf" download target="_blank">here</a></p>
+                </div>
+                <div class="grid-column span-1"></div>
+                <div class="grid-column mt3 mb2 order-1 reveal-on-scroll is-revealing">
+                    <img src="/img/documents.svg" alt="Documents">
                 </div>
             </div>
         </div>
@@ -86,25 +94,6 @@
 
     <!-- Cookies popup -->
     <script type="text/javascript" id="cookieinfo" src="js/cookieinfo.min.js" data-moreinfo="/pp.html"></script>
-
-    <!-- Copy to clipboard button -->
-    <script src="js/clipboard.min.js"></script>
-
-    <script type="text/javascript">
-        const http = new XMLHttpRequest();
-        http.open("GET", "/token");
-        http.send();
-        http.onload = () => {
-            const base64Url = http.responseText.split('.')[1];
-            const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
-            const jsonPayload = decodeURIComponent(atob(base64).split('').map(function(c) {
-                return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
-            }).join(''));
-            document.getElementById("sub").innerHTML = JSON.parse(jsonPayload)['sub'];
-            document.getElementById("token").innerHTML = http.responseText;
-        }
-        new ClipboardJS('.btn');
-    </script>
 
     </body>
 </html>
