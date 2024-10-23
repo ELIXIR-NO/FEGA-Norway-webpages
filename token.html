@@ -48,11 +48,9 @@
 
         <!-- Feature list -->
         <div class="container mt2">
-            <code id="token" class="align--justify align--center-on-mobile text--gray" style="overflow-wrap: break-word; max-width: 100px">
-            </code>
             <div class="grid-row pt1 mt1">
                 <div class="grid-column align--center align--center-on-mobile">
-                    <button class="btn" data-clipboard-target="#token">
+                    <button class="btn">
                         Copy to clipboard
                     </button>
                 </div>
@@ -99,8 +97,9 @@
                     return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
                 }).join(''));
                 document.getElementById("sub").innerHTML = JSON.parse(jsonPayload)['sub'];
-                document.getElementById("token").innerHTML = responseText;
-                new ClipboardJS('.btn');
+                new ClipboardJS('.btn', {
+                    text: () =>  responseText
+                });
             })
             .catch(error => {
                 console.error('Fetch error:', error);
