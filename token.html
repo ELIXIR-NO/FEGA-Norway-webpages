@@ -115,6 +115,18 @@
                 >
                   Copy Username
                 </button>
+                <p
+                  id="copyStatusUsername"
+                  style="
+                    display: none;
+                    color: #10b981;
+                    margin: 0.5rem 0 0 0;
+                    font-size: 0.9rem;
+                    text-align: center;
+                  "
+                >
+                  Username copied to clipboard!
+                </p>
               </div>
 
               <!-- Token section -->
@@ -144,19 +156,19 @@
                 >
                   Copy Access Token
                 </button>
+                <p
+                  id="copyStatusToken"
+                  style="
+                    display: none;
+                    color: #10b981;
+                    margin: 0.5rem 0 0 0;
+                    font-size: 0.9rem;
+                    text-align: center;
+                  "
+                >
+                  Access token copied to clipboard!
+                </p>
               </div>
-
-              <p
-                id="copyStatus"
-                style="
-                  display: none;
-                  color: #10b981;
-                  margin: 0;
-                  font-size: 0.9rem;
-                "
-              >
-                Copied to clipboard!
-              </p>
             </div>
 
             <!-- Error state -->
@@ -227,7 +239,7 @@
     <script src="js/clipboard.min.js"></script>
 
     <script type="text/javascript">
-      fetch("/token", {
+      fetch("http://localhost:3000/token", {
         headers: {
           "Content-Type": "application/json",
         },
@@ -262,15 +274,22 @@
             text: () => responseText
           });
 
-          // Handle copy success
-          [clipboardUsername, clipboardToken].forEach(clipboard => {
-            clipboard.on("success", function (e) {
-              const copyStatus = document.getElementById("copyStatus");
-              copyStatus.style.display = "block";
-              setTimeout(() => {
-                copyStatus.style.display = "none";
-              }, 2000);
-            });
+          // Handle copy success for username
+          clipboardUsername.on("success", function (e) {
+            const copyStatus = document.getElementById("copyStatusUsername");
+            copyStatus.style.display = "block";
+            setTimeout(() => {
+              copyStatus.style.display = "none";
+            }, 2000);
+          });
+
+          // Handle copy success for token
+          clipboardToken.on("success", function (e) {
+            const copyStatus = document.getElementById("copyStatusToken");
+            copyStatus.style.display = "block";
+            setTimeout(() => {
+              copyStatus.style.display = "none";
+            }, 2000);
           });
         })
         .catch((error) => {
