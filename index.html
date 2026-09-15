@@ -24,14 +24,25 @@
 
     <body class="has-animations">
 
-    <div class="container pt3 mt2 text--gray align--center">
-        <div class="grid-column align--left">
-            <a href="/" class="link"><img class="logo" style="max-height: 100px; vertical-align: -2em; margin: 20px;" src="/img/EGA_submarcas_Norway.svg" alt="Federated EGA Norway node"></a>
-            <a href="/docs.html" class="link link--text" style="margin: 8px;">Docs and Info</a>
-            <a href="/pp.html" class="link link--text" style="margin: 8px;">Privacy Policy</a>
-            <a href="/tos.html" class="link link--text" style="margin: 8px;">Terms of Service</a>
-            <a href="mailto:fega-norway-support@elixir.no" class="link link--text" style="margin: 8px;">Contact Us</a>
-            <a href="/about.html" class="link link--text" style="margin: 8px;">About</a>
+    <div class="container pt3 mt2 text--gray">
+        <div style="display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap;">
+
+            <a href="/" class="link" style="display:inline-flex; align-items:center;">
+                <img class="logo"
+                     style="max-height:100px; margin:20px 0;"
+                     src="/img/EGA_submarcas_Norway.svg"
+                     alt="Federated EGA Norway node">
+            </a>
+
+            <nav style="display:flex; align-items:center; flex-wrap:wrap; justify-content:flex-end;">
+                <a href="/docs.html" class="link link--text" style="margin: 8px;">Docs and Info</a>
+                <a href="#news" class="link link--text" style="margin: 8px;">News</a>
+                <a href="/pp.html" class="link link--text" style="margin: 8px;">Privacy Policy</a>
+                <a href="/tos.html" class="link link--text" style="margin: 8px;">Terms of Service</a>
+                <a href="mailto:fega-norway-support@elixir.no" class="link link--text" style="margin: 8px;">Contact Us</a>
+                <a href="/about.html" class="link link--text" style="margin: 8px;">About</a>
+            </nav>
+
         </div>
     </div>
 
@@ -92,6 +103,51 @@ Thank you for your understanding.
                 <div class="grid-column span-one-third mb3 reveal-on-scroll is-revealing">
                     <img class="illustration--small mb1" src="/img/connected.svg" alt="Stay connected">
                     <p>Shareable</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Newsletter -->
+        <div id="news" class="container--lg pt1 pb1">
+            <div class="border--bottom pb2 mb2">
+                <h2>News</h2>
+                <p class="text--gray">
+                    Read the latest issues from the EGA newsletter.
+                    <a class="link link--text"
+                       href="http://eepurl.com/jocSfA"
+                       target="_blank" rel="noopener noreferrer">
+                        Open in a new tab
+                    </a>
+                </p>
+            </div>
+            <div class="grid-row mt2">
+
+                <!-- Card 1 -->
+                <div class="grid-column span-one-third mb2">
+                    <img class="illustration--small mb1" src="/img/connected.svg" alt="">
+                    <p class="bold mb1">20 Jan 2026</p>
+                    <p class="text--gray mb1">
+                        FEGA Norway completes infrastructure upgrade to support encrypted submissions and improved transfer speeds.
+                    </p>
+                    <p>
+                        <a class="link link--text"
+                           href="https://us5.campaign-archive.com/?u=bdc656f4543817ee1c6fd7141&id=f98e772610"
+                           target="_blank" rel="noopener noreferrer">
+                            Read more →
+                        </a>
+                    </p>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="grid-column span-one-third mb2">
+                    <img class="illustration--small mb1" src="/img/vault.svg" alt="">
+                    <p class="bold mb1">10 Jan 2026</p>
+                    <p class="text--gray mb1">
+                        Backend services updated to improve stability for large Crypt4GH file uploads.
+                    </p>
+                    <p>
+                        <a class="link link--text" href="#" onclick="return false;">More info soon</a>
+                    </p>
                 </div>
             </div>
         </div>
